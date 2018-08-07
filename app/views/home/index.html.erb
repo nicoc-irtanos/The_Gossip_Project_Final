@@ -1,0 +1,16 @@
+<html>
+<h1>The Gossip Project</h1>
+
+<% if user_signed_in? %>
+
+  <% @gossips = Gossip.all %>
+  <% @gossips.each do |gossip| %>
+  <p><%= gossip.content %><br /></p>
+  <% end %>
+
+<% else %>
+
+  <p>Hey bro <%= link_to "connecte-toi", new_user_session_path %> ou <%= link_to "inscris-toi", new_user_registration_path %></p>
+
+<% end %>
+</html>
